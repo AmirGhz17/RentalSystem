@@ -2,8 +2,8 @@ import java.util.Date;
 
 public class Game extends Item{
 
-    String platform;
-    String publisher;
+    private final String platform;
+    private final String publisher;
     public Game(String title, String genre, Date releaseDate, int id,String platform,String publisher,int rentalfee) {
 
         super(title, genre, releaseDate, id , rentalfee);
