@@ -22,11 +22,11 @@ public class RentalStore {
         if (!z){
             customers.add(customer);
             System.out.println("This customer added successfully!!!");
-            System.out.println("Item ID:"+customer.getId());
+            System.out.println("Customer ID:"+customer.getId());
         }
         else {
             System.out.println("We already have this customer!!!");
-            System.out.println("Item ID:"+customer.getId());
+            System.out.println("Customer ID:"+customer.getId());
         }
 
     }
