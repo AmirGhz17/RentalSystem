@@ -145,24 +145,24 @@ public class RentalStore {
 
     public Customer getCustomerById(int id) {
 
-        int x=-1;
+        int x = -1;
 
-        for (int i=0;i<customers.size();i++){
-            if(id== customers.get(i).getId()){
-
-                x=i;
+        for (int i = 0; i < customers.size(); i++) {
+            if (id == customers.get(i).getId()) {
+                x = i;
+                return customers.get(x);
             }
         }
-        if (x<0){
+        if (x < 0) {
             System.out.println("==============================");
             System.out.println("|   This id doesn't exist!!! |");
-            System.out.println("|   So for default x:0       |");
             System.out.println("==============================");
-            x=0;
 
         }
-        return customers.get(x);
+
+        return null;
     }
+
     public Item getItemById(int id) {
 
         int x = -1;
@@ -170,18 +170,17 @@ public class RentalStore {
             if (id == items.get(i).getId()) {
                 x = i;
 
+                return items.get(x);
             }
         }
-        if (x<0){
+        if (x < 0) {
             System.out.println("==============================");
             System.out.println("|   This id doesn't exist!!! |");
-            System.out.println("|   So for default x:0       |");
             System.out.println("==============================");
-            x=0;
-
         }
-        return items.get(x);
+        return  null;
     }
+    
     public int rental_id(Item item,Customer customer){
 
         String id = Integer.toString(item.getId());
