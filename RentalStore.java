@@ -109,12 +109,13 @@ public class RentalStore {
             System.out.println("=================================================|");
         }
     }
-    public  void returnItem(Rental rental){
+    
+public  void returnItem(Rental rental){
 
 
         boolean x=true;
         for (int z=0;z<rental.getCustomer().rentals.size();z++){
-            if (Objects.equals(rental.getId(),rental.getCustomer().rentals.get(z).getId())){
+            if (Objects.equals(rental.getId(), rental.getCustomer().rentals.get(z).getId())&&Objects.equals(rental.getCustomer(),rental.getCustomer().getRentals().get(z).getCustomer())&&Objects.equals(rental.getItem(),rental.getCustomer().getRentals().get(z).getItem()) && !rental.getItem().isAvailable){
 
                 getAvailableItems.add(rental.getItem());
 
@@ -130,6 +131,7 @@ public class RentalStore {
             System.out.println("These aren't matches to rentallist!!!");
         }
     }
+
 
     public static int rand_id() {
 
