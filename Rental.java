@@ -15,7 +15,7 @@ public class Rental {
         this.item=item;
         this.customer=customer;
         this.rentalDate=new Date();
-        this.returnDate=new Date(rentalDate.getTime() + TimeUnit.DAYS.toMillis(5));
+        this.returnDate=new Date();
         Rental.id =id;
     }
 
@@ -45,14 +45,17 @@ public class Rental {
 
     public double calculateLateFee(Customer customer){
 
-        int milliedatedifference = (int) (this.rentalDate.getTime() - this.returnDate.getTime());
-        int datediffrence = (int) TimeUnit.DAYS.convert(milliedatedifference, TimeUnit.MILLISECONDS);
+        long milliedatedifference = Math.abs(this.rentalDate.getTime() - this.returnDate.getTime());
+//        long datediffrence =TimeUnit.DAYS.convert(milliedatedifference, TimeUnit.MILLISECONDS);
+//
+//        if(datediffrence<=0) {
+//            return 0;
+//        }
 
-        if(datediffrence<=0) {
-            return 0;
-        }
+        System.out.println("Days(seconds) between " + this.returnDate + " and " + this.rentalDate + ": " + milliedatedifference);
         //default latefee = 10
-        return 10*datediffrence;
+        System.out.println("Fee:");
+        return 10*milliedatedifference;
 
     }
     public double calculateLateFee(int days){
